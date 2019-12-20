@@ -1,4 +1,5 @@
 # Ngx-Angular-Autocomplete
+[NPM Package](https://www.npmjs.com/package/ngx-angular-autocomplete)
 Simple Angular Autocomplete Component 
 ## Getting Started
 
