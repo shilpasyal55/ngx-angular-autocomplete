@@ -1,27 +1,93 @@
-# DummyAuto
+# Ngx-Angular-Autocomplete
+Simple Angular Autocomplete Component 
+## Getting Started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
+### Installation
+Step 1 : `npm  install ngx-angular-autocomplete`
+### API
+Step 2 :  `Import the NgxAutocompleteModule:`
 
-## Development server
+```sh
+import { NgxAutocompleteModule } from 'ngx-autocomplete' 
+  @NgModule({
+    declarations: [AppComponent],
+    imports: [NgxAutocompleteModule],
+    bootstrap: [AppComponent]
+ })
+export class AppModule {} 
+```
+Selector: ` ngx-autocomplete `
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Step 3 :
+    In `app.component.html`
+        
+```sh
+<ngx-autocomplete [searchKeyword]="'name'" 
+    [inputId]="'searchEmployee'" 
+    [placeholderValue]="'Enter the Employee Name'" 
+    [entries]="employees" 
+    (selectedValue)="selectEvent($event)">
+</ngx-autocomplete>
+```
+   
+In `app.component.ts`
+```sh
+import { Component } from '@angular/core';
+    @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+    })
+    export class AppComponent {
+        title = 'ngx-autocomplete-test';
+        public employees = [
+        {
+          "id": 1,
+          "name": "Parsifal",
+          "gender": "Male"
+        }, {
+          "id": 2,
+          "name": "Mirabel",
+          "gender": "Female"
+        }, {
+          "id": 3,
+          "name": "Verne",
+          "gender": "Male"
+        }, {
+          "id": 4,
+          "name": "Julissa",
+          "gender": "Female"
+        }, {
+          "id": 5,
+          "name": "Chaddy",
+          "gender": "Male"
+        }, {
+          "id": 6,
+          "name": "Cosme",
+          "gender": "Male"
+        }]
+      selectEvent(event) {
+        console.log(event)
+     }}
+```
+            
+# API
 
-## Code scaffolding
+### @Input()
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Input                    | Type           |     Required     |  Description |
+| -------------------------|:--------------:| ----------------:|:-------------|
+| [searchKeyword]            | string         | true             | Variable name on which the search is to be performed |
+| [inputId]                  | string         | true             | set the id of input box |
+| [placeholderValue]         | string         | false            | input box placeholder |
+| [entries ]                 | array of objects| true            | Array of Objects on which the search is to be performed |
 
-## Build
+### @Output()
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+| Output                   | Return         |   Description    |
+| -------------------------|:--------------:| ----------------:|
+| ( selectedValue )            | string         | true             |
 
-## Running unit tests
+# Author
++ **[Shilpa syal](https://twitter.com/shilpasyal55)** 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
